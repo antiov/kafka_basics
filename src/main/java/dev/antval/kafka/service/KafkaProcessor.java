@@ -34,7 +34,7 @@ class KafkaProcessor {
                 // We use `groupBy` to ensure the words are available as message keys
                 .groupBy((key, value) -> value, Grouped.with(stringSerde, stringSerde))
                 // Count the occurrences of each word (message key).
-                .count();
+                .count(Materialized.as("counts"));
 
         // Convert the `KTable<String, Long>` into a `KStream<String, Long>` and write to the output topic.
         wordCounts.toStream().to("streams-wordcount-output", Produced.with(stringSerde, longSerde));
