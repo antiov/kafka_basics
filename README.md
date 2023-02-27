@@ -1,4 +1,4 @@
-# Implementing Kakfa with Spring Boot on Concluent.
+# Implementing Kakfa on Confluent using Spring Boot.
 
 In this application you can find the use of kafka and it's components.
 
