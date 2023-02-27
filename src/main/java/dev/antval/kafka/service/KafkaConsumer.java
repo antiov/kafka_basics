@@ -1,4 +1,4 @@
-package dev.antval.kafka;
+package dev.antval.kafka.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

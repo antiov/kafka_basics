@@ -1,4 +1,4 @@
-package dev.antval.kafka;
+package dev.antval.kafka.service;
 
 import com.github.javafaker.Faker;
 import lombok.RequiredArgsConstructor;
