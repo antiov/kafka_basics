@@ -16,4 +16,9 @@ public class KafkaTopicBuilder {
     NewTopic counts() {
         return TopicBuilder.name("streams-wordcount-output").partitions(2).replicas(3).build();
     }
+
+    @Bean
+    NewTopic hobbitAvro() {
+        return TopicBuilder.name("hobbit-avro").partitions(2).replicas(3).build();
+    }
 }

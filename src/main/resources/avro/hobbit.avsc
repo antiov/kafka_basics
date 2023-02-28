@@ -1,0 +1,11 @@
+{
+    "fields": [
+        {
+            "name": "quote",
+            "type": "string"
+        }
+    ],
+    "name": "Hobbit",
+    "namespace": "dev.antval.kafka.avro",
+    "type": "record"
+}

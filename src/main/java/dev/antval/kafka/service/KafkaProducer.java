@@ -1,6 +1,7 @@
 package dev.antval.kafka.service;
 
 import com.github.javafaker.Faker;
+import dev.antval.kafka.avro.Hobbit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
@@ -14,7 +15,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 @Component
 class KafkaProducer{
-    private final KafkaTemplate<Integer,String> template;
+    private final KafkaTemplate<Integer,Hobbit> template;
 
     Faker faker;
 
@@ -26,6 +27,6 @@ class KafkaProducer{
         final Flux<String> quotes = Flux.fromStream(Stream.generate(() -> faker.hobbit().quote()));
 
         Flux.zip(interval, quotes)
-                .map(it -> template.send("hobbit", faker.random().nextInt(42), it.getT2())).blockLast();
+                .map(it -> template.send("hobbit-avro", faker.random().nextInt(42), new Hobbit(it.getT2()))).blockLast();
     }
 }
